@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #000;
+  color: #f3eeee;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #141414;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+
+
+
+nav a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: #f20b0b;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #eb0814;
+}
+
+/* Netflix-like hero background */
+.hero {
+  height: 100vh;
+  background: url('netflix-1.jpeg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  animation: zoomIn 20s ease-in-out infinite alternate; /* cinematic zoom */
+}
+
+@keyframes zoomIn {
+  0% { background-size: 100% 100%; }
+  100% { background-size: 110% 110%; }
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* dark overlay */
+  top: 0;
+  left: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h2 span {
+  color: #e0141e;
+}
+
+/* ----------------------------- */
+/* Universal Glassy Red Buttons  */
+/* ----------------------------- */
+.btn {
+  position: relative;
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border: 1px solid rgba(229,9,20,0.5);
+  background: rgba(229,9,20,0.25);  /* semi-transparent red */
+  color: #fff;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s, background 0.3s;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Moving shine effect */
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05), rgba(255,255,255,0.2));
+  transform: skewX(-20deg);
+  transition: all 0.7s;
+  z-index: 2;
+}
+
+.btn:hover::before {
+  left: 125%;
+}
+
+/* Glow and hover effect */
+.btn:hover {
+  transform: scale(1.05);
+  background: rgba(229,9,20,0.35);
+  box-shadow: 0 0 15px rgba(229,9,20,0.6),
+              0 0 30px rgba(229,9,20,0.4),
+              0 0 45px rgba(229,9,20,0.3);
+}
+
+/* ----------------------------- */
+/* Skill cards hover */
+.skill-card {
+  background: #141414;
+  padding: 1rem;
+  border: 1px solid #333;
+  border-radius: 10px;
+  transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+}
+
+.skill-card:hover {
+  transform: scale(1.05);
+  background: #e50914;
+  box-shadow: 0 0 15px #e50914;
+}
+
+/* Project cards hover */
+.project-card {
+  background: #141414;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #e50914;
+}
+
+.section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.skills .skill-grid,
+.projects .project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Contact section */
+.contact .contact-details {
+  margin-top: 1.5rem;
+  line-height: 1.8;
+}
+
+.contact-details p {
+  font-size: 1.1rem;
+}
+
+footer {
+  background-color: #141414;
+  text-align: center;
+  padding: 1rem 0;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* Fade-in animation for hero */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-content h2,
+.hero-content p,
+.hero-content .btn {
+  opacity: 0;
+  animation: fadeIn 1.2s forwards;
+}
+
+.hero-content h2 {
+  animation-delay: 0.3s;
+}
+
+.hero-content p {
+  animation-delay: 0.6s;
+}
+
+.hero-content .btn {
+  animation-delay: 0.9s;
+}
+
+.contact .btn {
+  margin-top: 3rem;
+}
+.contact-btn .btn {
+  display: inline-block;
+}  
+
